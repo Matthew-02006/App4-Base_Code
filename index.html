@@ -27,4 +27,37 @@ References:
 https://www.w3schools.com/w3css/default.asp
 https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-file
 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Mole Diagonistic</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="w3.css">
+  <link rel="stylesheet" href="w3-colors-flat.css">
+
+  <style>
+    .page {
+      width: 100vw;
+      height: 100vh;
+      position: fixed;
+      top: 0;
+      left: -100vw; 
+      overflow-y: auto;
+      z-index: 0;
+      background-color: hsl(32, 84%, 48%);
+    }
+
+    .page:target {
+      left: 0vw;
+      z-index: 1;
+    }
+
+    .page:first-of-type {
+      left: 0vw;
+      z-index: 1;
+    }
+  </style>
+</head>
+<body>
 	
