@@ -82,3 +82,70 @@ Intro Page
     <a href="#two" onclick="BenignAdd();" class="w3-btn w3-black">No</a>
   </div>
 </div>
+<!-- QUESTION 2 -->
+<div class="page" id="two">
+  <div class="header w3-container w3-flat-carrot">
+    <h1>Question 2</h1>
+  </div>
+  <div class="content w3-container">
+    <p>Does your mole have irregular borders?</p>
+    <a href="#three" onclick="CancerousAdd();" class="w3-btn w3-black">Yes</a>
+    <a href="#three" onclick="BenignAdd();" class="w3-btn w3-black">No</a>
+  </div>
+</div>
+
+<!-- QUESTION 3 -->
+<div class="page" id="three">
+  <div class="header w3-container w3-flat-carrot">
+    <h1>Question 3</h1>
+  </div>
+  <div class="content w3-container">
+    <p>Does your mole have multiple colors (brown, black, red, etc.)?</p>
+    <a href="#four" onclick="CancerousAdd();" class="w3-btn w3-black">Yes</a>
+    <a href="#four" onclick="BenignAdd();" class="w3-btn w3-black">No</a>
+  </div>
+</div>
+
+<!-- QUESTION 4 -->
+<div class="page" id="four">
+  <div class="header w3-container w3-flat-carrot">
+    <h1>Question 4</h1>
+  </div>
+  <div class="content w3-container">
+    <p>Is your mole larger than the size of a pencil eraser?</p>
+    <a href="#results" onclick="CancerousAdd(); showResults();" class="w3-btn w3-black">Yes</a>
+    <a href="#results" onclick="BenignAdd(); showResults();" class="w3-btn w3-black">No</a>
+  </div>
+</div>
+
+<!-- RESULTS PAGE -->
+<div class="page" id="results">
+  <div class="header w3-container w3-flat-carrot">
+    <p id="resultsText"></p>
+<p id="thumbsUp" style="font-size:50px; display:none;">👍</p>
+<a href="#start" class="w3-btn w3-grey w3-round">Back to Start</a>
+</div>
+
+<script>
+  var cancerScore = 0;
+  var benignScore = 0;
+
+  function CancerousAdd() { cancerScore++; }
+  function BenignAdd() { benignScore++; }
+
+  function showResults() {
+    var resultText = document.getElementById("resultsText");
+    var total = cancerScore + benignScore;
+    if (total === 0) total = 1; // avoid division by zero
+    var cancerPercent = Math.round((cancerScore / total) * 100);
+    var benignPercent = Math.round((benignScore / total) * 100);
+
+    resultText.innerHTML =
+      "Probability the mole may be concerning: " + cancerPercent + "%<br>" +
+      "Probability the mole appears benign: " + benignPercent + "%";
+  }
+  
+</script>
+
+</body>
+</html>
